@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<ItemService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +24,10 @@ app.UseStaticFiles();
 
 app.UseAuthorization();
 
-app.MapControllers();
+//app.MapControllers();
+app.MapControllerRoute(
+    name: "default", 
+    pattern: "{controller}/{action}/{id?}");
+
 
 app.Run();
