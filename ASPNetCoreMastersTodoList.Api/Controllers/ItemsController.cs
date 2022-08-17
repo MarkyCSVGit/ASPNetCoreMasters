@@ -6,8 +6,8 @@ using Services.DTO;
 
 namespace ASPNetCoreMastersTodoList.Api.Controllers
 {
-    //[Route("api/Items")]
-    //[ApiController]
+    [Route("api/Items")]
+    [ApiController]
     public class ItemsController : ControllerBase
     {
         private readonly ItemService _itemService;
@@ -19,21 +19,65 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
         }
 
         [HttpGet]
-        public List<ItemDTO> Get(ItemDTO itemDTO)
+        [Route("api/Items")]
+        public IActionResult GetAll(ItemDTO itemDTO)
         {
-            return _itemService.GetAll();
+
+            var itemEntities = _itemService.GetAll;
+            var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
+            return Ok(itemToReturn);
         }
-        
+
+        [HttpGet]
+        [Route("api/items/{itemId}")]
+        public IActionResult Get(int itemId)
+        {
+
+            var itemEntities = _itemService.GetItem(itemId);
+            var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
+
+            return Ok(itemToReturn);
+
+        }
+
+
+        [HttpGet]
+        public IActionResult GetByFilters([FromQuery] Dictionary<string, string> filters)
+
+        {
+            var itemEntities = _itemService.GetItemByFilter(filters);
+            var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
+
+            return Ok(itemToReturn);
+        }
+
 
         [HttpPost]
-        public IActionResult Post(ItemCreateBindingModel itemBindingModel)
+        public IActionResult Post([FromBody] ItemCreateBindingModel itemCreateModel)
         {
-            
+
             var itemToReturn =
-                _mapper.Map<ItemDTO>(itemBindingModel);
+                _mapper.Map<ItemDTO>(itemCreateModel);
 
             _itemService.Save(itemToReturn);
 
+            return NoContent();
+        }
+
+
+        [HttpPut]
+        [Route("api/items/{itemId}")]
+        public IActionResult Put(int id, [FromBody] ItemUpdateBindingModel itemUpdateModel)
+        {
+            
+            return NoContent();
+        }
+
+
+        [HttpDelete]
+        [Route("api/items/{itemId}")]
+        public IActionResult Delete(int itemId)
+        { 
             return NoContent();
         }
 
