@@ -10,9 +10,9 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
     [ApiController]
     public class ItemsController : ControllerBase
     {
-        private readonly ItemService _itemService;
+        private readonly IItemService _itemService;
         private readonly IMapper _mapper;
-        public ItemsController(ItemService itemService, IMapper mapper)
+        public ItemsController(IItemService itemService, IMapper mapper)
         {
             _itemService = itemService ?? throw new ArgumentNullException(nameof(itemService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
@@ -23,7 +23,7 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
         public IActionResult GetAll(ItemDTO itemDTO)
         {
 
-            var itemEntities = _itemService.GetAll;
+            var itemEntities = _itemService.GetAll();
             var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
             return Ok(itemToReturn);
         }
@@ -39,7 +39,6 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
             return Ok(itemToReturn);
 
         }
-
 
         [HttpGet]
         public IActionResult GetByFilters([FromQuery] Dictionary<string, string> filters)
@@ -81,5 +80,7 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
             return NoContent();
         }
 
+
+     
     }
 }
