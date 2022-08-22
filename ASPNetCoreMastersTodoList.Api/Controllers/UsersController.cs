@@ -13,9 +13,9 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
         public UsersController(IOptions<AuthenticationSetting> options)
         {
             _settings = options.Value;
-            var securityKey = _settings.JwtProp.SecurityKey;
-            var issuer =  _settings.JwtProp.Issuer;
-            var audience = _settings.JwtProp.Audience;
+            var securityKey = _settings.JwtProp?.SecurityKey;
+            var issuer =  _settings.JwtProp?.Issuer;
+            var audience = _settings.JwtProp?.Audience;
             
         }
         [HttpGet]
