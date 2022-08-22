@@ -6,7 +6,8 @@ namespace Repositories
     public interface IItemRepository
     {
        
-        Task<IEnumerable<Item>> All();
+        IQueryable<Item> All();
+        //Task<IEnumerable<Item>> All();
 
         void Save(Item item);
 

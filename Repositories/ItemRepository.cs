@@ -12,9 +12,9 @@ namespace Repositories
             _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
         }
 
-        public async Task<IEnumerable<Item>> All()
+        public IQueryable<Item> All()
         {
-            return _dataContext.Items.OrderBy(c => c.Text).ToList();
+            return _dataContext.Items.AsQueryable();
         }
 
         public void Save(Item item)
