@@ -1,10 +1,26 @@
-﻿namespace Services
+﻿using Services.DTO;
+using AutoMapper;
+using DomainModels;
+
+namespace Services
 {
     public class ItemService
     {
-        public IEnumerable<string> GetAll()
+        private readonly IMapper _mapper;
+        public ItemService(IMapper mapper)
         {
-            return new string[] { "value1", "value2" };
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }   
+        public List<ItemDTO> GetAll()
+        {
+            var collectionToReturn = new List<ItemDTO>();
+            return collectionToReturn;
+        }
+
+        public void Save(ItemDTO itemDTO)
+        {
+            var itemToReturn =
+                 _mapper.Map<Item>(itemDTO);
         }
 
     }
