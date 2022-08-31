@@ -1,14 +1,17 @@
 ﻿using Services.DTO;
 using AutoMapper;
 using DomainModels;
+using Repositories;
 
 namespace Services
 {
-    public class ItemService
+    public class ItemService: IItemService
     {
+        private readonly IItemRepository _itemRepository;
         private readonly IMapper _mapper;
-        public ItemService(IMapper mapper)
+        public ItemService(IItemRepository itemRepository,IMapper mapper)
         {
+            _itemRepository = itemRepository;
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }   
         public IEnumerable<ItemDTO> GetAll()
@@ -30,16 +33,28 @@ namespace Services
             return collectionToReturn;
         }
 
-        public IEnumerable<ItemDTO> GetItemByFilter(Dictionary<string, string> filters)
-        {
-            if (filters == null)
-            {
-                throw new ArgumentNullException(nameof(filters));
-            }
+        public IEnumerable<ItemDTO> GetAllByFilter(ItemByFilterDTO filterDto) => _itemRepository.All()
+                .Where(x => filterDto.Id == x.Id || x.Text == filterDto.Text)
+                .Select(x => new ItemDTO { Id = x.Id, Text = x.Text});
 
-            var collectionToReturn = new List<ItemDTO>();
-            return collectionToReturn;
+        public ItemDTO Get(int itemId)
+        {
+            throw new NotImplementedException();
         }
 
+        public void Add(ItemDTO itemDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(ItemDTO itemDTO)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

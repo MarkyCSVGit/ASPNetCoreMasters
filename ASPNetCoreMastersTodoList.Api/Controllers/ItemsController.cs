@@ -6,47 +6,46 @@ using Services.DTO;
 
 namespace ASPNetCoreMastersTodoList.Api.Controllers
 {
-    [Route("api/Items")]
+    [Route("items")]
     [ApiController]
     public class ItemsController : ControllerBase
     {
-        private readonly ItemService _itemService;
+        private readonly IItemService _itemService;
         private readonly IMapper _mapper;
-        public ItemsController(ItemService itemService, IMapper mapper)
+        public ItemsController(IItemService itemService, IMapper mapper)
         {
             _itemService = itemService ?? throw new ArgumentNullException(nameof(itemService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         [HttpGet]
-        [Route("api/Items")]
-        public IActionResult GetAll(ItemDTO itemDTO)
+        public IActionResult GetAll()
         {
 
-            var itemEntities = _itemService.GetAll;
+            var itemEntities = _itemService.GetAll();
             var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
             return Ok(itemToReturn);
         }
 
-        [HttpGet]
-        [Route("api/items/{itemId}")]
+        [HttpGet("{itemId}")]
         public IActionResult Get(int itemId)
         {
 
-            var itemEntities = _itemService.GetItem(itemId);
+            var itemEntities = _itemService.Get(itemId);
             var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
 
             return Ok(itemToReturn);
 
         }
 
-
-        [HttpGet]
+        [HttpGet("filterBy")]
         public IActionResult GetByFilters([FromQuery] Dictionary<string, string> filters)
 
         {
-            var itemEntities = _itemService.GetItemByFilter(filters);
-            var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
+            //var itemEntities = _itemService.GetAllByFilter(ItemByFilterDTO filter);
+            var dto = new ItemByFilterDTO();
+
+            var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(dto);
 
             return Ok(itemToReturn);
         }
@@ -59,14 +58,14 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
             var itemToReturn =
                 _mapper.Map<ItemDTO>(itemCreateModel);
 
-            _itemService.Save(itemToReturn);
+            _itemService.Add(itemToReturn);
 
             return NoContent();
         }
 
 
         [HttpPut]
-        [Route("api/items/{itemId}")]
+        [Route("items/{itemId}")]
         public IActionResult Put(int id, [FromBody] ItemUpdateBindingModel itemUpdateModel)
         {
             
@@ -75,11 +74,13 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
 
 
         [HttpDelete]
-        [Route("api/items/{itemId}")]
+        [Route("items/{itemId}")]
         public IActionResult Delete(int itemId)
         { 
             return NoContent();
         }
 
+
+     
     }
 }
