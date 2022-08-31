@@ -11,7 +11,7 @@ namespace Services
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }   
-        public List<ItemDTO> GetAll()
+        public IEnumerable<ItemDTO> GetAll()
         {
             var collectionToReturn = new List<ItemDTO>();
             return collectionToReturn;
@@ -21,6 +21,24 @@ namespace Services
         {
             var itemToReturn =
                  _mapper.Map<Item>(itemDTO);
+        }
+
+        public IEnumerable<ItemDTO> GetItem(int itemId)
+        {
+            
+            var collectionToReturn = new List<ItemDTO>();
+            return collectionToReturn;
+        }
+
+        public IEnumerable<ItemDTO> GetItemByFilter(Dictionary<string, string> filters)
+        {
+            if (filters == null)
+            {
+                throw new ArgumentNullException(nameof(filters));
+            }
+
+            var collectionToReturn = new List<ItemDTO>();
+            return collectionToReturn;
         }
 
     }
