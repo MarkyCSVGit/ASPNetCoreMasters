@@ -12,12 +12,12 @@ namespace ASPNetCoreMastersTodoList.Api.Filters
         {
             context.HttpContext.Items["ActionName"] = context.HttpContext.Request.GetEncodedUrl();
             context.HttpContext.Items["StartTime"] = DateTime.UtcNow;
-            Console.WriteLine("Executing OnActionExecuting Start time " + context.HttpContext.Items["StartTime"].ToString());
+            Console.WriteLine("Executing OnActionExecuting Start time " + context.HttpContext.Items["StartTime"]!.ToString());
 
             ActionExecutedContext executedContext = await next();
           
-            DateTime startTime = (DateTime)executedContext.HttpContext.Items["StartTime"];
-            Console.WriteLine("Executing OnActionExecuted " + executedContext.HttpContext.Items["ActionName"].ToString() + "-" + (DateTime.UtcNow - startTime).TotalMilliseconds);
+            DateTime startTime = (DateTime)executedContext.HttpContext.Items["StartTime"]!;
+            Console.WriteLine("Executing OnActionExecuted " + executedContext.HttpContext.Items["ActionName"]!.ToString() + "-" + (DateTime.UtcNow - startTime).TotalMilliseconds);
 
         }
 

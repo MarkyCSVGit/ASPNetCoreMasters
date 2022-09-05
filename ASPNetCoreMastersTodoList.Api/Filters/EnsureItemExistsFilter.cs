@@ -19,14 +19,20 @@ namespace ASPNetCoreMastersTodoList.Api.Filters
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            var itemId = (int)context.ActionArguments["itemId"];
+            if (!context.ActionArguments.ContainsKey("itemId"))
+            {
+                context.Result = new BadRequestObjectResult("The item id must be passed as parameter");
+                return;
+            }
+
+            var itemId = (int)context.ActionArguments["itemId"]!;
             if (!_service.DoesItemExist(itemId))
             {
                 context.Result = new NotFoundResult();
             }
         }
     }
-
+        
     public class EnsureItemsExistFilterAttribute : TypeFilterAttribute
     {
         public EnsureItemsExistFilterAttribute() : base(typeof(EnsureItemExistsFilter))
