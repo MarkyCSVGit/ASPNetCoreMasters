@@ -4,11 +4,12 @@ using ASPNetCoreMastersTodoList.Api.BindingModels;
 using AutoMapper;
 using Services.DTO;
 using ASPNetCoreMastersTodoList.Api.Filters;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASPNetCoreMastersTodoList.Api.Controllers
 {
     [Route("items")]
+    [Authorize(Policy = "CanEditItems")]
     [ApiController]
     [EnsureItemsExistFilterAttribute]
     public class ItemsController : ControllerBase

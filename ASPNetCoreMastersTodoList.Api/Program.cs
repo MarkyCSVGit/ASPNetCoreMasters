@@ -8,7 +8,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Reflection;
 using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
@@ -30,7 +30,8 @@ builder.Services.AddControllers(options =>
 {
     options.Filters.Add(new ActionExecutionTimeFilter());
     options.ReturnHttpNotAcceptable = true;
-});
+}).AddNewtonsoftJson()
+.AddXmlDataContractSerializerFormatters();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -45,7 +46,7 @@ builder.Services.AddSwaggerGen(setupAction =>
 
     setupAction.IncludeXmlComments(xmlCommentsFullPath);
 
-    setupAction.AddSecurityDefinition("CityInfoApiBearerAuth", new OpenApiSecurityScheme()
+    setupAction.AddSecurityDefinition("ItemInfoApiBearerAuth", new OpenApiSecurityScheme()
     {
         Type = SecuritySchemeType.Http,
         Scheme = "Bearer",
@@ -59,7 +60,7 @@ builder.Services.AddSwaggerGen(setupAction =>
             {
                 Reference = new OpenApiReference {
                     Type = ReferenceType.SecurityScheme,
-                    Id = "CityInfoApiBearerAuth" }
+                    Id = "ItemInfoApiBearerAuth" }
             }, new List<string>() }
     });
 });
@@ -78,22 +79,6 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<ItemExistService>();
 
-//builder.Services.AddAuthentication(o =>
-//{
-//    o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//    o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//    o.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-//})
-//                .AddJwtBearer(o =>
-//                {
-//                    o.TokenValidationParameters = new TokenValidationParameters
-//                    {
-//                        ValidateAudience = false,
-//                        ValidateIssuer = false,
-//                        IssuerSigningKey = securityKey
-//                    };
-//                });
-
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer(options =>
@@ -104,19 +89,20 @@ builder.Services.AddAuthentication("Bearer")
             ValidateAudience = true,
             ValidateIssuerSigningKey = true,
             ValidIssuer = builder.Configuration["Authentication:Issuer"],
-            ValidAudience = builder.Configuration["Authentication:Audience"]
-            //IssuerSigningKey = new SymmetricSecurityKey(
-            //    Encoding.ASCII.GetBytes(builder.Configuration["Authentication:SecurityKey"]))
-        };
+            ValidAudience = builder.Configuration["Authentication:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.ASCII.GetBytes(builder.Configuration["Authentication:SecretForKey"]))};
     }
     );
 
+
+
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("MustBeFromAntwerp", policy =>
+    options.AddPolicy("CanEditItems", policy =>
     {
         policy.RequireAuthenticatedUser();
-        policy.RequireClaim("item", "Antwerp");
+        policy.RequireClaim("user_name", "Marky");
     });
 });
 
@@ -140,8 +126,6 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
-
-//app.MapControllers();
 
 app.UseEndpoints(endpoints =>
 {
