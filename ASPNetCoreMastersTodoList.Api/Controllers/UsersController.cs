@@ -22,6 +22,7 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
 
         private readonly UserManager<IdentityUser> userManager;
         private readonly JwtOptions jwtOptions;
+        
 
         public UsersController(UserManager<IdentityUser> userManager,
             IOptions<JwtOptions> options)
@@ -30,7 +31,7 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
             this.jwtOptions = options.Value;
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterBindingModel model)
         {
             var user = new IdentityUser
@@ -56,7 +57,7 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
             }
         }
 
-        [HttpPost("[action]")]
+        [HttpPost("confirm")]
         public async Task<IActionResult> Confirm(RegisterBindingModel confirm)
         {
             var user = await userManager.FindByEmailAsync(confirm.Email);
