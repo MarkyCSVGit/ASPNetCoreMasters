@@ -3,11 +3,14 @@ using Services;
 using ASPNetCoreMastersTodoList.Api.BindingModels;
 using AutoMapper;
 using Services.DTO;
+using ASPNetCoreMastersTodoList.Api.Filters;
+
 
 namespace ASPNetCoreMastersTodoList.Api.Controllers
 {
     [Route("items")]
     [ApiController]
+    [EnsureItemsExistFilterAttribute]
     public class ItemsController : ControllerBase
     {
         private readonly IItemService _itemService;
@@ -18,10 +21,10 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
+
         [HttpGet]
         public IActionResult GetAll()
         {
-
             var itemEntities = _itemService.GetAll();
             var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
             return Ok(itemToReturn);
@@ -30,7 +33,6 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
         [HttpGet("{itemId}")]
         public IActionResult Get(int itemId)
         {
-
             var itemEntities = _itemService.Get(itemId);
             var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
 
@@ -40,7 +42,6 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
 
         [HttpGet("filterBy")]
         public IActionResult GetByFilters([FromQuery] Dictionary<string, string> filters)
-
         {
             //var itemEntities = _itemService.GetAllByFilter(ItemByFilterDTO filter);
             var dto = new ItemByFilterDTO();
