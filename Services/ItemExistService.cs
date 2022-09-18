@@ -2,15 +2,15 @@
 using AutoMapper;
 using DomainModels;
 using Repositories;
-using Services.Data;
+
 
 namespace Services;
 
 public class ItemExistService
 {
-  readonly AppDbContext _context;
+  readonly DataContext _context;
 
-  public ItemExistService(AppDbContext context)
+  public ItemExistService(DataContext context)
   {
     _context = context;
   }

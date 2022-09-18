@@ -1,7 +1,5 @@
 using Repositories;
 using Services;
-using ASPNetCoreMastersTodoList.Api.Filters;
-using Services.Data;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -9,7 +7,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Reflection;
 using System.Text;
-
+using ASPNetCoreMastersTodoList.Api.Filters;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
@@ -27,7 +25,7 @@ try
         .WriteTo.Console()
         .WriteTo.Seq("http://localhost:5001"));
 
-    builder.Services.AddDbContext<AppDbContext>(options =>
+    builder.Services.AddDbContext<DataContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
     // Add services to the container.
