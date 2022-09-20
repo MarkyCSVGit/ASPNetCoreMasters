@@ -4,19 +4,23 @@ using ASPNetCoreMastersTodoList.Api.BindingModels;
 using AutoMapper;
 using Services.DTO;
 using ASPNetCoreMastersTodoList.Api.Filters;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASPNetCoreMastersTodoList.Api.Controllers
 {
     [Route("items")]
+    [Authorize(Policy = "CanEditItems")]
     [ApiController]
     [EnsureItemsExistFilterAttribute]
     public class ItemsController : ControllerBase
     {
+        private readonly ILogger<ItemsController> _logger;
         private readonly IItemService _itemService;
         private readonly IMapper _mapper;
-        public ItemsController(IItemService itemService, IMapper mapper)
+        public ItemsController(ILogger<ItemsController> logger, IItemService itemService, IMapper mapper)
         {
+            _logger = logger ??
+                throw new ArgumentNullException(nameof(logger));
             _itemService = itemService ?? throw new ArgumentNullException(nameof(itemService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
@@ -25,6 +29,7 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
+
             var itemEntities = _itemService.GetAll();
             var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
             return Ok(itemToReturn);
@@ -34,6 +39,13 @@ namespace ASPNetCoreMastersTodoList.Api.Controllers
         public IActionResult Get(int itemId)
         {
             var itemEntities = _itemService.Get(itemId);
+            if (itemEntities == null)
+            {
+                _logger.LogInformation(
+                    $"Item with id {itemId} wasn't found.");
+                return NotFound();
+            }
+
             var itemToReturn = _mapper.Map<IEnumerable<ItemDTO>>(itemEntities);
 
             return Ok(itemToReturn);

@@ -1,0 +1,97 @@
+2022-09-12 14:15:06.843 +08:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-09-12 14:15:06.939 +08:00 [DBG] Hosting starting
+2022-09-12 14:15:06.993 +08:00 [INF] User profile is available. Using 'C:\Users\markjun.delarosa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-12 14:15:06.998 +08:00 [DBG] Reading data from file 'C:\Users\markjun.delarosa\AppData\Local\ASP.NET\DataProtection-Keys\key-1adf63da-d94b-40d8-87da-46072f83ca19.xml'.
+2022-09-12 14:15:07.006 +08:00 [DBG] Reading data from file 'C:\Users\markjun.delarosa\AppData\Local\ASP.NET\DataProtection-Keys\key-e374f2d1-9bd2-49dd-b6a4-359131b20439.xml'.
+2022-09-12 14:15:07.016 +08:00 [DBG] Found key {1adf63da-d94b-40d8-87da-46072f83ca19}.
+2022-09-12 14:15:07.024 +08:00 [DBG] Found key {e374f2d1-9bd2-49dd-b6a4-359131b20439}.
+2022-09-12 14:15:07.031 +08:00 [DBG] Considering key {e374f2d1-9bd2-49dd-b6a4-359131b20439} with expiration date 2022-11-28 09:12:39Z as default key.
+2022-09-12 14:15:07.035 +08:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-12 14:15:07.039 +08:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-09-12 14:15:07.041 +08:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-12 14:15:07.048 +08:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-09-12 14:15:07.053 +08:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-09-12 14:15:07.060 +08:00 [DBG] Using key {e374f2d1-9bd2-49dd-b6a4-359131b20439} as the default key.
+2022-09-12 14:15:07.062 +08:00 [DBG] Key ring with default key {e374f2d1-9bd2-49dd-b6a4-359131b20439} was loaded during application startup.
+2022-09-12 14:15:07.270 +08:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 6FC3E312A44A97EF6B610F70DBD0825B6702C2AA)
+2022-09-12 14:15:07.432 +08:00 [INF] Now listening on: https://localhost:7155
+2022-09-12 14:15:07.433 +08:00 [INF] Now listening on: http://localhost:5155
+2022-09-12 14:15:07.434 +08:00 [DBG] Loaded hosting startup assembly ASPNetCoreMastersTodoList.Api
+2022-09-12 14:15:07.435 +08:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-09-12 14:15:07.435 +08:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-09-12 14:15:07.437 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-12 14:15:07.453 +08:00 [INF] Hosting environment: Development
+2022-09-12 14:15:07.454 +08:00 [INF] Content root path: C:\ASPNetCoreMasters\ASPNetCoreMastersTodoList.Api\
+2022-09-12 14:15:07.458 +08:00 [DBG] Hosting started
+2022-09-12 14:15:07.477 +08:00 [DBG] Connection id "0HMKKGOHTU86V" accepted.
+2022-09-12 14:15:07.477 +08:00 [DBG] Connection id "0HMKKGOHTU86U" accepted.
+2022-09-12 14:15:07.480 +08:00 [DBG] Connection id "0HMKKGOHTU86U" started.
+2022-09-12 14:15:07.480 +08:00 [DBG] Connection id "0HMKKGOHTU86V" started.
+2022-09-12 14:15:10.340 +08:00 [DBG] Connection id "0HMKKGOHTU870" accepted.
+2022-09-12 14:15:10.342 +08:00 [DBG] Connection id "0HMKKGOHTU870" started.
+2022-09-12 14:15:10.524 +08:00 [DBG] Connection 0HMKKGOHTU870 established using the following protocol: "Tls12"
+2022-09-12 14:15:10.900 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7155/swagger/index.html - -
+2022-09-12 14:15:11.001 +08:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-09-12 14:15:11.403 +08:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-09-12 14:15:11.888 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7155/_framework/aspnetcore-browser-refresh.js - -
+2022-09-12 14:15:11.891 +08:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-09-12 14:15:11.888 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7155/_vs/browserLink - -
+2022-09-12 14:15:11.903 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7155/swagger/index.html - - - 200 - text/html;charset=utf-8 1086.3963ms
+2022-09-12 14:15:11.903 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7155/_framework/aspnetcore-browser-refresh.js - - - 200 12028 application/javascript;+charset=utf-8 14.2230ms
+2022-09-12 14:15:12.166 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7155/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 278.0298ms
+2022-09-12 14:15:12.261 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7155/swagger/v1/swagger.json - -
+2022-09-12 14:15:12.573 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7155/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 311.3861ms
+2022-09-12 14:15:17.519 +08:00 [DBG] Authentication of the HTTPS connection timed out.
+2022-09-12 14:15:17.519 +08:00 [DBG] Authentication of the HTTPS connection timed out.
+2022-09-12 14:15:17.523 +08:00 [DBG] Connection id "0HMKKGOHTU86U" stopped.
+2022-09-12 14:15:17.523 +08:00 [DBG] Connection id "0HMKKGOHTU86V" stopped.
+2022-09-12 14:15:17.525 +08:00 [DBG] Connection id "0HMKKGOHTU86U" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-12 14:15:17.525 +08:00 [DBG] Connection id "0HMKKGOHTU86V" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-12 14:15:22.803 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7155/api/authentication/authenticate application/json-patch+json 50
+2022-09-12 14:15:22.808 +08:00 [DBG] POST requests are not supported
+2022-09-12 14:15:22.808 +08:00 [DBG] POST requests are not supported
+2022-09-12 14:15:22.831 +08:00 [DBG] 1 candidate(s) found for the request path '/api/authentication/authenticate'
+2022-09-12 14:15:22.835 +08:00 [DBG] Endpoint 'ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController.Authenticate (ASPNetCoreMastersTodoList.Api)' with route pattern 'api/authentication/authenticate' is valid for the request path '/api/authentication/authenticate'
+2022-09-12 14:15:22.839 +08:00 [DBG] Request matched endpoint 'ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController.Authenticate (ASPNetCoreMastersTodoList.Api)'
+2022-09-12 14:15:22.889 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-09-12 14:15:22.893 +08:00 [INF] Executing endpoint 'ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController.Authenticate (ASPNetCoreMastersTodoList.Api)'
+2022-09-12 14:15:22.911 +08:00 [INF] Route matched with {action = "Authenticate", controller = "Authentication"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Authenticate(AuthenticationRequestBody) on controller ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController (ASPNetCoreMastersTodoList.Api).
+2022-09-12 14:15:22.914 +08:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-09-12 14:15:22.915 +08:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-09-12 14:15:22.917 +08:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)","ASPNetCoreMastersTodoList.Api.Filters.ActionExecutionTimeFilter"]
+2022-09-12 14:15:22.918 +08:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-09-12 14:15:22.919 +08:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-09-12 14:15:22.920 +08:00 [DBG] Executing controller factory for controller ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController (ASPNetCoreMastersTodoList.Api)
+2022-09-12 14:15:22.921 +08:00 [DBG] Executed controller factory for controller ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController (ASPNetCoreMastersTodoList.Api)
+2022-09-12 14:15:22.927 +08:00 [DBG] Attempting to bind parameter 'authenticationRequestBody' of type 'ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController+AuthenticationRequestBody' ...
+2022-09-12 14:15:22.930 +08:00 [DBG] Attempting to bind parameter 'authenticationRequestBody' of type 'ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController+AuthenticationRequestBody' using the name '' in request data ...
+2022-09-12 14:15:22.931 +08:00 [DBG] Rejected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonPatchInputFormatter' for content type 'application/json-patch+json'.
+2022-09-12 14:15:22.932 +08:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonInputFormatter' for content type 'application/json-patch+json'.
+2022-09-12 14:15:22.943 +08:00 [DBG] Connection id "0HMKKGOHTU870", Request id "0HMKKGOHTU870:00000009": started reading request body.
+2022-09-12 14:15:22.944 +08:00 [DBG] Connection id "0HMKKGOHTU870", Request id "0HMKKGOHTU870:00000009": done reading request body.
+2022-09-12 14:15:23.079 +08:00 [DBG] Done attempting to bind parameter 'authenticationRequestBody' of type 'ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController+AuthenticationRequestBody'.
+2022-09-12 14:15:23.081 +08:00 [DBG] Done attempting to bind parameter 'authenticationRequestBody' of type 'ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController+AuthenticationRequestBody'.
+2022-09-12 14:15:23.082 +08:00 [DBG] Attempting to validate the bound parameter 'authenticationRequestBody' of type 'ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController+AuthenticationRequestBody' ...
+2022-09-12 14:15:23.092 +08:00 [DBG] Done attempting to validate the bound parameter 'authenticationRequestBody' of type 'ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController+AuthenticationRequestBody'.
+2022-09-12 14:15:23.211 +08:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.XmlDataContractSerializerOutputFormatter"]
+2022-09-12 14:15:23.215 +08:00 [DBG] Attempting to select an output formatter based on Accept header '["text/plain"]'.
+2022-09-12 14:15:23.216 +08:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response.
+2022-09-12 14:15:23.217 +08:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2022-09-12 14:15:23.224 +08:00 [INF] Executed action ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController.Authenticate (ASPNetCoreMastersTodoList.Api) in 298.6503ms
+2022-09-12 14:15:23.227 +08:00 [INF] Executed endpoint 'ASPNetCoreMastersTodoList.Api.Controllers.AuthenticationController.Authenticate (ASPNetCoreMastersTodoList.Api)'
+2022-09-12 14:15:23.228 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7155/api/authentication/authenticate application/json-patch+json 50 - 200 - text/plain;+charset=utf-8 425.3542ms
+2022-09-12 14:15:28.463 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7155/items - -
+2022-09-12 14:15:28.464 +08:00 [DBG] The request path  does not match the path filter
+2022-09-12 14:15:28.466 +08:00 [DBG] The request path /items does not match a supported file type
+2022-09-12 14:15:28.467 +08:00 [DBG] 1 candidate(s) found for the request path '/items'
+2022-09-12 14:15:28.468 +08:00 [DBG] Endpoint 'ASPNetCoreMastersTodoList.Api.Controllers.ItemsController.GetAll (ASPNetCoreMastersTodoList.Api)' with route pattern 'items' is valid for the request path '/items'
+2022-09-12 14:15:28.469 +08:00 [DBG] Request matched endpoint 'ASPNetCoreMastersTodoList.Api.Controllers.ItemsController.GetAll (ASPNetCoreMastersTodoList.Api)'
+2022-09-12 14:15:28.470 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-09-12 14:15:28.477 +08:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+ClaimsAuthorizationRequirement:Claim.Type=user_name and Claim.Value is one of the following values: (Marky)
+2022-09-12 14:15:28.484 +08:00 [INF] AuthenticationScheme: Bearer was challenged.
+2022-09-12 14:15:28.485 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7155/items - - - 401 0 - 21.5767ms
+2022-09-12 14:22:51.698 +08:00 [INF] Starting up
+2022-09-12 14:26:32.199 +08:00 [INF] Starting up
+2022-09-12 14:27:14.841 +08:00 [INF] Starting up
